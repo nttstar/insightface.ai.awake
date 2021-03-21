@@ -9,8 +9,8 @@ import theCMS from '../cms/netlify/cms'
  * General Site configurations
  */
 export default {
-  siteName: 'Awake',
-  tagline: 'A Nuxt.js Theme for Netlify CMS',
+  siteName: 'InsightFace',
+  tagline: 'An open source 2D&3D deep face analysis toolbox, mainly based on MXNet and PyTorch.',
   featureImage: '/uploads/demo_image.jpg',
   logo: 'logo-component', // 'logo-component', // or '/logo.svg' for regular image
   googleAnalytics: {
