@@ -10,7 +10,7 @@ import theCMS from '../cms/netlify/cms'
  */
 export default {
   siteName: 'InsightFace',
-  tagline: 'An open source 2D&3D deep face analysis toolbox, mainly based on MXNet and PyTorch.',
+  tagline: 'An open source 2D&3D deep face analysis toolbox',
   featureImage: '/uploads/demo_image.jpg',
   logo: 'logo-component', // 'logo-component', // or '/logo.svg' for regular image
   googleAnalytics: {
@@ -23,21 +23,16 @@ export default {
       link: '/about'
     },
     {
-      name: 'Contact',
-      link: '/contact'
-    },
-    {
       name: 'Categories',
       link: '/categories'
     },
     {
-      name: 'Github Repo',
-      link: 'https://github.com/deepinsight/insightface',
-      target: '_blank'
+      name: 'Contact',
+      link: '/contact'
     },
     {
-      name: 'Awake+ Premium',
-      link: 'https://awake-premium-lp.netlify.com/',
+      name: 'Github Repo',
+      link: 'https://github.com/deepinsight/insightface',
       target: '_blank'
     }
   ],
