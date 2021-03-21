@@ -12,7 +12,7 @@ export default {
   siteName: 'InsightFace',
   tagline: 'An open source 2D&3D deep face analysis toolbox',
   featureImage: '/uploads/demo_image.jpg',
-  logo: 'logo-component', // 'logo-component', // or '/logo.svg' for regular image
+  logo: '/logo1.png', // 'logo-component', // or '/logo.svg' for regular image
   googleAnalytics: {
     on: true,
     id: process.env.GOOGLE_ANALYTICS_ID
