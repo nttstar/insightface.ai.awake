@@ -1,5 +1,5 @@
 ---
-title: Leaderboard
+title: IFRT-Leaderboard
 subtitle: IFRT leaderboard
 category:
   - Challenges
