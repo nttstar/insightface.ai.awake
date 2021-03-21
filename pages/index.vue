@@ -12,7 +12,6 @@
         Nothing here
       </template>
     </main-section>
-    <news-letter-form-modal />
   </div>
 </template>
 
