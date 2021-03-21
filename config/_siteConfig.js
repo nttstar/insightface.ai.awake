@@ -19,12 +19,8 @@ export default {
   },
   mainMenu: [
     {
-      name: 'About',
-      link: '/about'
-    },
-    {
-      name: 'Install',
-      link: '/install'
+      name: 'Get-Started',
+      link: '/get-started'
     },
     {
       name: 'Docs',
@@ -39,8 +35,8 @@ export default {
       link: '/leaderboard'
     },
     {
-      name: 'Categories',
-      link: '/categories'
+      name: 'Research',
+      link: '/research'
     },
     {
       name: 'Contact',
