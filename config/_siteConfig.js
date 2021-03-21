@@ -23,6 +23,22 @@ export default {
       link: '/about'
     },
     {
+      name: 'Install',
+      link: '/install'
+    },
+    {
+      name: 'Docs',
+      link: '/docs'
+    },
+    {
+      name: 'Model-Zoo',
+      link: '/model-zoo'
+    },
+    {
+      name: 'Leaderboard',
+      link: '/leaderboard'
+    },
+    {
       name: 'Categories',
       link: '/categories'
     },
