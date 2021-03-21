@@ -21,7 +21,7 @@ This python package is used to call our pre-trained face models in an easy way.
 
 ##### Firstly, we defined some tool methods:
 
-```python
+```
 import insightface
 import urllib
 import urllib.request
@@ -37,31 +37,29 @@ def url_to_image(url):
 
 ##### Then, we download and show the example image:
 
-```python
+```
 url = 'https://github.com/deepinsight/insightface/blob/master/sample-images/t1.jpg?raw=true'
 img = url_to_image(url)
 ```
 
 ##### Init FaceAnalysis module by its default models:
-```python
+```
 model = insightface.app.FaceAnalysis()
-
 ```
 
 ##### Here we use CPU to do all the job. Please change ctx-id to a non-negative number if you have GPUs
 
-```python
+```
 model.prepare(ctx_id = -1, nms=0.4)
 ```
 
 ##### Do image inference:
-```python
+```
 faces = model.get(img)
-
 ```
 
 ##### Show inference results:
-```python
+```
 for idx, face in enumerate(faces):
     print("Face [%d]:"%idx)
     print("\tage:%d"%(face.age))
@@ -74,3 +72,57 @@ for idx, face in enumerate(faces):
       print("\tlandmark:%s"%(face.landmark.astype(np.int).flatten()))
       print("")
 ```
+
+# ArcFace Face Recognition Example
+
+##### Firstly, we defined some tool methods:
+
+```
+def l2norm(feat):
+    return np.sqrt(np.sum(feat*feat)+0.000001)
+
+def feature_similarity(feat1, feat2):
+    feat1_norm = feat1 / l2norm(feat1)
+    feat2_norm = feat2 / l2norm(feat2)
+```
+
+##### Get an online pre-trained ArcFace model by its name:
+```
+model = insightface.model_zoo.get_model('arcface_r100_v1')
+model.prepare(ctx_id = -1)
+```
+
+##### Then, read some aligned images for comparison:
+
+```
+img1 = cv2.imread('./aligned_1.jpg') #the path is fake
+img2 = cv2.imread('./aligned_2.jpg') #the path is fake
+```
+
+##### Do face recognition, get the feature embedding vectors.
+```
+feat1 = model.get_embedding(img1)
+feat2 = model.get_embedding(img2)
+```
+
+##### Get the similarity of two faces:
+```
+sim = feature_similarity(feat1, feat2)
+print("The similarity is %.5f"%sim)
+```
+
+# RetinaFace Face Detection Example
+
+
+##### Get an online pre-trained RetinaFace model by its name:
+```
+model = insightface.model_zoo.get_model('retinaface_r50_v1')
+model.prepare(ctx_id = -1)
+```
+
+
+##### Do face detection, get the bounding box and key-points:
+```
+bboxes, landmarks = model.detect(img, threshold=0.5, scale=1.0)
+```
+
