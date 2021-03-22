@@ -43,6 +43,7 @@ img = url_to_image(url)
 ```
 
 ##### Init FaceAnalysis module by its default models:
+
 ```
 model = insightface.app.FaceAnalysis()
 ```
@@ -54,11 +55,13 @@ model.prepare(ctx_id = -1, nms=0.4)
 ```
 
 ##### Do image inference:
+
 ```
 faces = model.get(img)
 ```
 
 ##### Show inference results:
+
 ```
 for idx, face in enumerate(faces):
     print("Face [%d]:"%idx)
@@ -82,11 +85,13 @@ def l2norm(feat):
     return np.sqrt(np.sum(feat*feat)+0.000001)
 
 def feature_similarity(feat1, feat2):
-    feat1_norm = feat1 / l2norm(feat1)
-    feat2_norm = feat2 / l2norm(feat2)
+    norm_feat1 = feat1 / l2norm(feat1)
+    norm_feat2 = feat2 / l2norm(feat2)
+    return np.dot(norm_feat1, norm_feat2)
 ```
 
 ##### Get an online pre-trained ArcFace model by its name:
+
 ```
 model = insightface.model_zoo.get_model('arcface_r100_v1')
 model.prepare(ctx_id = -1)
@@ -100,12 +105,14 @@ img2 = cv2.imread('./aligned_2.jpg') #the path is fake
 ```
 
 ##### Do face recognition, get the feature embedding vectors.
+
 ```
 feat1 = model.get_embedding(img1)
 feat2 = model.get_embedding(img2)
 ```
 
 ##### Get the similarity of two faces:
+
 ```
 sim = feature_similarity(feat1, feat2)
 print("The similarity is %.5f"%sim)
@@ -113,16 +120,15 @@ print("The similarity is %.5f"%sim)
 
 # RetinaFace Face Detection Example
 
-
 ##### Get an online pre-trained RetinaFace model by its name:
+
 ```
 model = insightface.model_zoo.get_model('retinaface_r50_v1')
 model.prepare(ctx_id = -1)
 ```
 
-
 ##### Do face detection, get the bounding box and key-points:
+
 ```
 bboxes, landmarks = model.detect(img, threshold=0.5, scale=1.0)
 ```
-
